@@ -268,11 +268,29 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // ==================== POST MANAGEMENT ====================
     function getPosts() {
+        let localPosts = [];
         try {
-            return JSON.parse(localStorage.getItem('scrapPosts') || '[]');
+            localPosts = JSON.parse(localStorage.getItem('scrapPosts') || '[]');
         } catch {
-            return [];
+            localPosts = [];
         }
+
+        // Merge PUBLIC_SPILLS (from spills_data.js) with local posts
+        // We ensure no duplicates by ID, prioritizing local (if user edited something locally)
+        // But for this purpose, let's just combine them.
+        // Public posts come first (or last, depending on date sort).
+
+        let publicPosts = [];
+        if (typeof PUBLIC_SPILLS !== 'undefined') {
+            publicPosts = PUBLIC_SPILLS;
+        }
+
+        // Combine and dedup by ID
+        const allPosts = [...localPosts, ...publicPosts];
+        const uniquePosts = Array.from(new Map(allPosts.map(item => [item.id, item])).values());
+
+        // Sort by date/timestamp descending
+        return uniquePosts.sort((a, b) => (b.timestamp || 0) - (a.timestamp || 0));
     }
 
     function savePosts(posts) {
@@ -503,6 +521,14 @@ document.addEventListener('DOMContentLoaded', () => {
             author: currentUser.username,
             timestamp: Date.now()
         };
+
+        // Show code snippet for GitHub
+        if (isAdmin()) {
+            const jsonSnippet = JSON.stringify(postData, null, 4) + ',';
+            // We can't actually copy to clipboard automatically without permission, but we can show it.
+            console.log('COPY THIS TO spills_data.js:\n', jsonSnippet);
+            alert('To publish this post for everyone, copy the code snippet from the CONSOLE (F12) and add it to spills_data.js in your repository!');
+        }
 
         addPost(postData);
 
