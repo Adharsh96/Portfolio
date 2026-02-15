@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adharsh M R — Web Designer & Developer</title>
+    <meta name="description"
+        content="Adharsh M R is a web designer, developer, and data science enthusiast who builds bold digital experiences with thoughtful code and striking visuals.">
+    <meta name="author" content="Adharsh M R">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&family=Inter:wght@300;400;500;600;700;800;900&family=Outfit:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Custom Cursor -->
+    <div class="cursor-dot" id="cursorDot"></div>
+    <div class="cursor-ring" id="cursorRing"></div>
+
+    <!-- Grain Overlay -->
+    <div class="grain-overlay" aria-hidden="true"></div>
+
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="nav-logo">
+            <a href="index.html">ADHARSH<span class="accent-dot">.</span></a>
+        </div>
+        <div class="nav-links">
+            <a href="index.html" class="nav-link active">HOME</a>
+            <a href="about.html" class="nav-link">ABOUT</a>
+            <a href="contact.html" class="nav-link">CONTACT</a>
+            <a href="scrap.html" class="nav-link nav-link-special">SCRAP.</a>
+        </div>
+        <div class="nav-hamburger" id="hamburger" aria-label="Toggle menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="index.html" class="mobile-link">HOME</a>
+        <a href="about.html" class="mobile-link">ABOUT</a>
+        <a href="contact.html" class="mobile-link">CONTACT</a>
+        <a href="scrap.html" class="mobile-link mobile-link-special">SCRAP.</a>
+    </div>
+
+    <!-- ==================== HOME SECTION ==================== -->
+    <main class="page-home">
+        <div class="home-container">
+
+            <!-- LEFT: Photo Area -->
+            <div class="home-photo" data-animate="fade-right">
+                <div class="photo-frame">
+                    <img src="img1.jpg" alt="Adharsh M R — Web Designer & Developer"
+                        style="width:100%;height:100%;object-fit:cover;">
+                </div>
+                <div class="photo-tag">BORN 08 · 07 · 1996</div>
+            </div>
+
+            <!-- RIGHT: Name & Intro -->
+            <div class="home-text">
+                <div class="home-greeting" data-animate="fade-up" data-delay="1">
+                    <span class="line-marker">//</span> HELLO, I'M
+                </div>
+                <h1 class="home-name" data-animate="fade-up" data-delay="2">
+                    ADHARSH M R<span class="accent-dot">.</span>
+                </h1>
+                <div class="home-title-bar" data-animate="fade-up" data-delay="3">
+                    <span class="title-tag">WEB DEVELOPER</span>
+                    <span class="title-tag">GRAPHIC DESIGNER</span>
+                    <span class="title-tag">DATA ENTHUSIAST</span>
+                </div>
+                <p class="home-bio" data-animate="fade-up" data-delay="4">
+                    I turn rough ideas into functional, visually sharp digital work.
+                    Trained in computer science, currently diving deep into data science
+                    and business analytics — I sit somewhere between logic and aesthetics.
+                    When I'm not writing code, I'm probably editing visuals or experimenting
+                    with something that doesn't exist yet.
+                </p>
+                <div class="home-cta" data-animate="fade-up" data-delay="5">
+                    <a href="contact.html" class="btn btn-primary magnetic">LET'S TALK →</a>
+                    <a href="about.html" class="btn btn-outline magnetic">KNOW MORE</a>
+                </div>
+                <div class="home-scroll-indicator" data-animate="fade-up" data-delay="6">
+                    <span class="scroll-text">SCROLL FOR MORE</span>
+                    <div class="scroll-line"></div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Marquee Strip -->
+        <div class="marquee-strip">
+            <div class="marquee-content">
+                <span>WEB DESIGN</span><span class="marquee-dot">◆</span>
+                <span>DEVELOPMENT</span><span class="marquee-dot">◆</span>
+                <span>UI/UX</span><span class="marquee-dot">◆</span>
+                <span>DATA SCIENCE</span><span class="marquee-dot">◆</span>
+                <span>AI</span><span class="marquee-dot">◆</span>
+                <span>MOTION GRAPHICS</span><span class="marquee-dot">◆</span>
+                <span>PHOTOGRAPHY</span><span class="marquee-dot">◆</span>
+                <span>ILLUSTRATION</span><span class="marquee-dot">◆</span>
+                <span>VIBE CODING</span><span class="marquee-dot">◆</span>
+                <span>ANIMATION</span><span class="marquee-dot">◆</span>
+                <span>VIDEO EDITING</span><span class="marquee-dot">◆</span>
+                <span>WEB DESIGN</span><span class="marquee-dot">◆</span>
+                <span>DEVELOPMENT</span><span class="marquee-dot">◆</span>
+                <span>UI/UX</span><span class="marquee-dot">◆</span>
+                <span>DATA SCIENCE</span><span class="marquee-dot">◆</span>
+                <span>AI</span><span class="marquee-dot">◆</span>
+                <span>MOTION GRAPHICS</span><span class="marquee-dot">◆</span>
+                <span>PHOTOGRAPHY</span><span class="marquee-dot">◆</span>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2024 ADHARSH M R. ALL RIGHTS RESERVED.</p>
+            <p class="footer-note">CRAFTED WITH PURPOSE AND PRECISION.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

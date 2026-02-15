@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume — Adharsh M R</title>
+    <meta name="description" content="Resume of Adharsh M R — education, experience, and the path that shaped my work.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&family=Inter:wght@300;400;500;600;700;800;900&family=Outfit:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="cursor-dot" id="cursorDot"></div>
+    <div class="cursor-ring" id="cursorRing"></div>
+    <div class="grain-overlay" aria-hidden="true"></div>
+
+    <!-- Navigation (Resume is hidden from nav but page still accessible via direct URL) -->
+    <nav id="navbar">
+        <div class="nav-logo">
+            <a href="index.html">ADHARSH<span class="accent-dot">.</span></a>
+        </div>
+        <div class="nav-links">
+            <a href="index.html" class="nav-link">HOME</a>
+            <a href="about.html" class="nav-link">ABOUT</a>
+            <a href="contact.html" class="nav-link">CONTACT</a>
+            <a href="scrap.html" class="nav-link nav-link-special">SCRAP.</a>
+        </div>
+        <div class="nav-hamburger" id="hamburger" aria-label="Toggle menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </nav>
+
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="index.html" class="mobile-link">HOME</a>
+        <a href="about.html" class="mobile-link">ABOUT</a>
+        <a href="contact.html" class="mobile-link">CONTACT</a>
+        <a href="scrap.html" class="mobile-link mobile-link-special">SCRAP.</a>
+    </div>
+
+    <!-- ==================== RESUME PAGE ==================== -->
+    <main class="page-resume">
+
+        <div class="page-hero">
+            <div class="page-hero-inner">
+                <span class="section-number" data-animate="fade-up">03</span>
+                <h1 class="page-title" data-animate="fade-up" data-delay="1">RESUME<span class="accent-dot">.</span>
+                </h1>
+                <div class="title-underline" data-animate="scale-x" data-delay="2"></div>
+            </div>
+        </div>
+
+        <div class="resume-container content-wrapper">
+
+            <!-- Personal Info -->
+            <div class="resume-block" data-animate="fade-up">
+                <h3 class="resume-block-title">
+                    <span class="block-icon">◼</span> PERSONAL
+                </h3>
+                <div class="timeline">
+                    <div class="timeline-item" data-animate="fade-up" data-delay="1">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <div class="timeline-date">ADHARSH M R</div>
+                            <h4 class="timeline-title">Date of Birth — 08 July 1996</h4>
+                            <p class="timeline-subtitle">Based in India. A self-taught designer who studied
+                                engineering, then pivoted toward the intersection of data, design, and development.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Education -->
+            <div class="resume-block" data-animate="fade-up">
+                <h3 class="resume-block-title">
+                    <span class="block-icon">◼</span> EDUCATION
+                </h3>
+                <div class="timeline">
+                    <div class="timeline-item" data-animate="fade-up" data-delay="1">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <div class="timeline-date">2024 — PRESENT</div>
+                            <h4 class="timeline-title">MBA — Data Science & Business Analytics</h4>
+                            <p class="timeline-subtitle">Pursuing a master's programme that combines business
+                                strategy with hands-on data work — predictive modelling, statistical reasoning,
+                                and turning raw datasets into actionable insight.</p>
+                        </div>
+                    </div>
+                    <div class="timeline-item" data-animate="fade-up" data-delay="2">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <div class="timeline-date">2020 — 2024</div>
+                            <h4 class="timeline-title">BE — Computer Science & Engineering</h4>
+                            <p class="timeline-subtitle">Four years spent building a solid base in programming logic,
+                                data structures, operating systems, and software design. This is where I first
+                                understood that code isn't just instructions — it's a craft.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Experience -->
+            <div class="resume-block" data-animate="fade-up">
+                <h3 class="resume-block-title">
+                    <span class="block-icon">◼</span> EXPERIENCE
+                </h3>
+                <div class="timeline">
+                    <div class="timeline-item" data-animate="fade-up" data-delay="1">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <div class="timeline-date">PRESENT</div>
+                            <h4 class="timeline-title">Freelance Web Developer & Designer</h4>
+                            <p class="timeline-subtitle">Working directly with individuals and small businesses to
+                                design websites, shape brand identities, and produce visual content — from pitch
+                                decks to social media campaigns. Every project starts with listening.</p>
+                        </div>
+                    </div>
+                    <!-- Add more experience items here -->
+                </div>
+            </div>
+
+            <!-- Download -->
+            <div class="resume-download" data-animate="fade-up">
+                <a href="#" class="btn btn-primary btn-large magnetic">↓ DOWNLOAD FULL RESUME (PDF)</a>
+            </div>
+
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2024 ADHARSH M R. ALL RIGHTS RESERVED.</p>
+            <p class="footer-note">CRAFTED WITH PURPOSE AND PRECISION.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

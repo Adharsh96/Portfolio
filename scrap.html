@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>scrap. — spills by adharsh</title>
+    <meta name="description"
+        content="scrap. — a dark, gritty creative space of raw spills, thoughts and visuals by adharsh.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Special+Elite&family=Inter:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="scrap.css">
+</head>
+
+<body>
+
+    <!-- Page Loader -->
+    <div class="page-loader" id="pageLoader">
+        <div class="loader-content">
+            <div class="loader-title">scrap<span class="loader-dot">.</span></div>
+            <div class="loader-bar">
+                <div class="loader-fill"></div>
+            </div>
+            <div class="loader-text">loading spills...</div>
+        </div>
+    </div>
+
+    <!-- Custom Cursor -->
+    <div class="scrap-cursor" id="scrapCursor"></div>
+    <div class="scrap-cursor-trail" id="scrapCursorTrail"></div>
+
+    <!-- Grain Overlay -->
+    <div class="scrap-grain" aria-hidden="true"></div>
+
+    <!-- Background Animation Canvas -->
+    <canvas id="bgCanvas" class="bg-canvas"></canvas>
+
+    <!-- Navigation -->
+    <nav class="scrap-nav" id="scrapNav">
+        <a href="index.html" class="scrap-back">← back to portfolio</a>
+        <div class="scrap-logo">scrap<span class="ld">.</span></div>
+        <div class="scrap-nav-right">
+            <span class="scrap-tagline" id="userStatus">viewing as guest</span>
+            <button class="nav-login-btn" id="navLoginBtn" title="login to post">⚿ login</button>
+            <button class="nav-logout-btn" id="navLogoutBtn" title="logout" style="display:none;">✕ logout</button>
+        </div>
+    </nav>
+
+    <!-- ==================== LOGIN MODAL ==================== -->
+    <div class="login-overlay" id="loginOverlay">
+        <div class="login-modal" id="loginModal">
+            <button class="login-close" id="loginClose">×</button>
+            <h2 class="login-title">authenticate<span class="ld">.</span></h2>
+            <p class="login-sub">enter your credentials to access the posting session.</p>
+            <form id="loginForm" class="login-form">
+                <div class="login-field">
+                    <label for="loginUser">username</label>
+                    <input type="text" id="loginUser" placeholder="your username" autocomplete="username" required>
+                </div>
+                <div class="login-field">
+                    <label for="loginPass">password</label>
+                    <input type="password" id="loginPass" placeholder="your password" autocomplete="current-password"
+                        required>
+                </div>
+                <div class="login-error" id="loginError"></div>
+                <button type="submit" class="login-submit">enter →</button>
+            </form>
+            <div class="login-footer">
+                <span>private journal — authorised access only</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==================== ADMIN PANEL MODAL ==================== -->
+    <div class="admin-overlay" id="adminOverlay">
+        <div class="admin-modal">
+            <button class="login-close" id="adminClose">×</button>
+            <h2 class="login-title">admin panel<span class="ld">.</span></h2>
+            <p class="login-sub">manage users who can post to your journal.</p>
+
+            <!-- Add User -->
+            <form id="addUserForm" class="login-form" style="margin-bottom:24px;">
+                <div class="login-field">
+                    <label for="newUsername">new username</label>
+                    <input type="text" id="newUsername" placeholder="username" required>
+                </div>
+                <div class="login-field">
+                    <label for="newPassword">password</label>
+                    <input type="text" id="newPassword" placeholder="password" required>
+                </div>
+                <button type="submit" class="login-submit" style="background:#7EB8DA;">+ add user</button>
+            </form>
+
+            <!-- User List -->
+            <div class="admin-user-list" id="adminUserList">
+                <!-- populated by JS -->
+            </div>
+        </div>
+    </div>
+
+    <!-- ==================== HERO ==================== -->
+    <header class="scrap-hero">
+        <div class="scrap-hero-inner">
+            <h1 class="scrap-hero-title" data-text="scrap.">scrap<span class="ld">.</span></h1>
+            <p class="scrap-hero-sub">
+                a raw, unfiltered space for spills — thoughts, visuals &amp; creative fragments.
+                nothing is polished here — every spill carries its own story.
+            </p>
+            <div class="scrap-hero-tags">
+                <span class="sticker sticker-1">✦ raw spills</span>
+                <span class="sticker sticker-2">♡ visual drops</span>
+                <span class="sticker sticker-3">☆ experiments</span>
+                <span class="sticker sticker-4">◇ late-night spills</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- ==================== POST CREATOR (visible only when logged in) ==================== -->
+    <section class="post-creator" id="postCreator" style="display:none;">
+        <div class="creator-inner">
+            <div class="creator-header">
+                <h2 class="creator-title">+ drop a spill</h2>
+                <button class="admin-btn" id="adminPanelBtn" style="display:none;" title="manage users">⚙ admin</button>
+            </div>
+            <form id="postForm" class="creator-form">
+                <div class="creator-field">
+                    <label for="postTitle">title (optional)</label>
+                    <input type="text" id="postTitle" placeholder="give it a name..." maxlength="80">
+                </div>
+                <div class="creator-field">
+                    <label for="postBody">your spill</label>
+                    <textarea id="postBody" rows="4" placeholder="spill something raw, unfiltered, honest..." required
+                        maxlength="1500"></textarea>
+                    <span class="char-counter" id="charCounter">0 / 1500</span>
+                </div>
+                <div class="creator-field">
+                    <label for="postImage">add a photo</label>
+                    <div class="image-upload-area" id="imageUploadArea">
+                        <input type="file" id="postImage" accept="image/*" hidden>
+                        <span class="upload-label" id="uploadLabel">click or drag an image here</span>
+                        <img id="imagePreview" class="image-preview" alt="Preview" style="display:none;">
+                    </div>
+                </div>
+                <div class="creator-row">
+                    <div class="creator-field" style="flex:1;">
+                        <label>mood</label>
+                        <div class="mood-selector">
+                            <button type="button" class="mood-btn" data-mood="✦ inspired">✦ inspired</button>
+                            <button type="button" class="mood-btn" data-mood="♡ in love">♡ in love</button>
+                            <button type="button" class="mood-btn" data-mood="☁ dreamy">☁ dreamy</button>
+                            <button type="button" class="mood-btn" data-mood="⚡ electric">⚡ electric</button>
+                            <button type="button" class="mood-btn" data-mood="🌙 nocturnal">🌙 nocturnal</button>
+                            <button type="button" class="mood-btn" data-mood="✿ serene">✿ serene</button>
+                            <button type="button" class="mood-btn" data-mood="△ chaotic">△ chaotic</button>
+                        </div>
+                    </div>
+                    <div class="creator-field">
+                        <label>color accent</label>
+                        <div class="color-picker-row">
+                            <button type="button" class="color-pick" data-color="#7EB8DA"
+                                style="background:#7EB8DA;"></button>
+                            <button type="button" class="color-pick" data-color="#A8D8F0"
+                                style="background:#A8D8F0;"></button>
+                            <button type="button" class="color-pick" data-color="#4ECDC4"
+                                style="background:#4ECDC4;"></button>
+                            <button type="button" class="color-pick" data-color="#FFB347"
+                                style="background:#FFB347;"></button>
+                            <button type="button" class="color-pick" data-color="#A8E6CF"
+                                style="background:#A8E6CF;"></button>
+                            <button type="button" class="color-pick active" data-color="#7EB8DA"
+                                style="background:#7EB8DA;"></button>
+                        </div>
+                    </div>
+                </div>
+                <button type="submit" class="creator-submit">spill it →</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- ==================== SPILLS GRID ==================== -->
+    <section class="scrap-grid-section">
+        <div class="grid-bg-blur" id="gridBgBlur"></div>
+        <div class="scrap-grid" id="scrapGrid">
+            <!-- Spills are rendered by JS -->
+        </div>
+        <div class="empty-state" id="emptyState">
+            <div class="empty-icon">✦</div>
+            <p>no spills yet. the canvas awaits its first drop.</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="scrap-footer">
+        <p>scrap. — a private space for spills by <a href="index.html">adharsh</a></p>
+        <p class="scrap-footer-note">every spill here is original — born from thought, not borrowed.</p>
+    </footer>
+
+    <script src="scrap.js"></script>
+</body>
+
+</html>
