@@ -316,7 +316,7 @@ function createPostElement(postData, animate = false, index = 0) {
         ? `<div class="post-image-wrapper"><img src="${postData.imageUrl}" alt="spill image" loading="lazy"></div>`
         : '';
     const titleHTML = postData.title ? `<h3 class="post-title">${escapeHTML(postData.title)}</h3>` : '';
-    const canDelete = isLoggedIn() && (isAdmin() || currentUser?.uid === postData.authorUid);
+    const canDelete = isLoggedIn() && isAdmin();
     const deleteHTML = canDelete ? `<button class="post-delete" title="delete spill">×</button>` : '';
 
     article.innerHTML = `
