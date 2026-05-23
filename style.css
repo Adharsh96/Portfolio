@@ -815,6 +815,118 @@ button {
     padding-left: 8px;
 }
 
+/* Projects */
+.projects-section {
+    margin-top: 20px;
+    margin-bottom: 80px;
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+}
+
+.project-card {
+    border: 2px solid #DDD;
+    background: rgba(255, 255, 255, 0.36);
+    transition: all 0.4s ease;
+    overflow: hidden;
+    position: relative;
+}
+
+.project-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: #FF3D00;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.5s ease;
+    z-index: 1;
+}
+
+.project-card:hover::before {
+    transform: scaleX(1);
+}
+
+.project-card:hover {
+    border-color: #111;
+    transform: translateY(-6px);
+    box-shadow: 6px 6px 0 #111;
+}
+
+.project-thumb {
+    aspect-ratio: 16 / 10;
+    border-bottom: 2px solid #DDD;
+    background: #EEE6DF;
+    overflow: hidden;
+}
+
+.project-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: saturate(0.92) contrast(1.03);
+    transition: transform 0.5s ease, filter 0.5s ease;
+}
+
+.project-card:hover .project-thumb img {
+    transform: scale(1.04);
+    filter: saturate(1) contrast(1.08);
+}
+
+.project-content {
+    padding: 26px;
+}
+
+.project-index {
+    display: inline-block;
+    font-family: 'Outfit', sans-serif;
+    font-size: 1.3rem;
+    font-weight: 800;
+    line-height: 1;
+    color: #FF3D00;
+    margin-bottom: 14px;
+}
+
+.project-content h4 {
+    font-family: 'Outfit', sans-serif;
+    font-size: 1.3rem;
+    font-weight: 800;
+    line-height: 1.2;
+    letter-spacing: 1px;
+    color: #111;
+    margin-bottom: 14px;
+}
+
+.project-content p {
+    font-size: 0.88rem;
+    line-height: 1.72;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.project-tags span {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.62rem;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+    color: #666;
+    border: 1px solid #CCC;
+    padding: 6px 8px;
+    background: rgba(242, 237, 232, 0.7);
+}
+
 /* Interests */
 .interests-section {
     margin-bottom: 40px;
@@ -1183,6 +1295,10 @@ button {
         grid-template-columns: repeat(2, 1fr);
     }
 
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+
     .page-title {
         font-size: 3.5rem;
     }
@@ -1348,6 +1464,14 @@ button {
 
     .skills-grid {
         grid-template-columns: 1fr;
+    }
+
+    .project-content {
+        padding: 20px;
+    }
+
+    .project-content h4 {
+        font-size: 1.08rem;
     }
 
     .title-tag {

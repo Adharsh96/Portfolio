@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Hover effects on interactive elements
         const hoverTargets = document.querySelectorAll(
-            'a, button, .btn, .nav-link, .title-tag, .interest-tag, .skill-list li, .social-link, .nav-hamburger, .about-block, .skill-category, .timeline-item, input, textarea'
+            'a, button, .btn, .nav-link, .title-tag, .interest-tag, .skill-list li, .social-link, .nav-hamburger, .about-block, .skill-category, .project-card, .timeline-item, input, textarea'
         );
 
         hoverTargets.forEach(el => {
@@ -126,7 +126,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // ==================== SCROLL REVEAL - NON-DATA-ANIMATE ELEMENTS ====================
     const revealElements = document.querySelectorAll(
-        '.about-block, .skill-category, .timeline-item, .info-block, .contact-form-wrapper'
+        '.about-block, .skill-category, .project-card, .timeline-item, .info-block, .contact-form-wrapper'
     );
 
     const genericObserver = new IntersectionObserver((entries) => {
