@@ -827,6 +827,12 @@ button {
     gap: 24px;
 }
 
+.project-link {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+}
+
 .project-card {
     border: 2px solid #DDD;
     background: rgba(255, 255, 255, 0.36);
