@@ -849,7 +849,12 @@ button {
     z-index: 1;
 }
 
-.project-card:hover::before {
+.project-card--linked {
+    cursor: pointer;
+}
+
+.project-card:hover::before,
+.project-card--linked:hover::before {
     transform: scaleX(1);
 }
 
